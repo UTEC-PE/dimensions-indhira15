@@ -18,12 +18,23 @@ class Vector {
         Vector() : data(nullptr) {};
              
         Vector(int dimensions, int* dimensionSizes) : dimensions(dimensions), dimensionSizes(dimensionSizes) {
-            // TODO
+            int total=1;
+            for(int i=0;i<dimensions;i++){
+                total=total*dimensionSizes[i];
+            }
+            int data[total];
         }
              
-        void set(T datum, int* coordinates); // TODO
+        void set(T datum, int* coordinates){
+            Operation op;
+            data[op(coordinates,dimensionSizes,dimensions)] = datum;
+        }
              
-        T get(int* coordinates); // TODO
+        T get(int* coordinates){
+            Operation op;
+            return data[op(coordinates,dimensionSizes,dimensions)] ;
+
+        }
 };
 
 #endif

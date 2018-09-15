@@ -1,6 +1,8 @@
 #include <cstdlib>
 #include <iostream>
 
+
+
 #include "vector.h"
 
 using namespace std;
@@ -8,7 +10,15 @@ using namespace std;
 template <typename T>
 struct Dimensions {      
     int operator()(int* coordinates, int* sizes, int dimensions) {
-        // TODO
+        int c=0;
+        int r=1;
+        for (int i = 0;i<dimensions; i++) {
+            c=c+ (coordinates[i]-1)*r;
+            r=r*sizes[i];
+        }
+
+        return(c);
+
     }
 };
 
@@ -17,7 +27,12 @@ struct Integer {
        typedef Dimensions<T> Operation;
 };
 
+
+
 int main(int argc, char *argv[]) {
-    system("pause");
-    return EXIT_SUCCESS;
+ //   system("pause");
+
+
+
+    return 0;
 }
